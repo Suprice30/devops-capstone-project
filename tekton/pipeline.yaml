@@ -11,6 +11,9 @@ spec:
     - name: branch
       default: main
     - name: build-image
+      type: string
+      default: image-registry.openshift-image-registry.svc:5000/sn-labs-supricekoti/accounts:1
+
   tasks:
     - name: init
       workspaces:
@@ -40,9 +43,9 @@ spec:
       taskRef:
         name: flake8
       params:
-        - name: image
-          value: python:3.9-slim
-        - name: args
-          value: ["--count", "--max-complexity=10", "--max-line-length=127", "--statistics"]
+      - name: image
+        value: "python:3.9-slim"
+      - name: args
+        value: ["--count","--max-complexity=10","--max-line-length=127","--statistics"]
       runAfter:
         - clone
