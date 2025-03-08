@@ -11,9 +11,7 @@ spec:
     - name: branch
       default: main
     - name: build-image
-      type: string
-      default: image-registry.openshift-image-registry.svc:5000/sn-labs-supricekoti/accounts:1
-
+      
   tasks:
     - name: init
       workspaces:
