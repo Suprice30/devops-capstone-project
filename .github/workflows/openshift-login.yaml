@@ -1,0 +1,16 @@
+name: OpenShift Login
+
+on: [push]
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: OpenShift Login
+      uses: redhat-actions/openshift-login@v2
+      with:
+        openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL }}
+        parameters: "--token=${{ secrets.OPENSHIFT_TOKEN }}"
